@@ -23,7 +23,7 @@ public class EBank {
     }
 
     public String checkPassword(String password) {
-        if (!password.matches("^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9@#$%]{8,31}$")) {
+        if (!password.matches("^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{8,31}$")) {
             return getMessage("passwordError");
         }
         return null;
