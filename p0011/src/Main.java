@@ -66,7 +66,8 @@ public class Main {
     }
 
     public boolean equalZero(String value) {
-        if (value.equals("0")) {
+        int check = Integer.parseInt(value);
+        if (check == 0) {
             return true;
         }
         return false;
