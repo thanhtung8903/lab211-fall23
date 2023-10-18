@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 public class EBank {
-
+    
     private Locale locale;
 
     public void setLocale(Locale locale) {
