@@ -4,39 +4,39 @@ import java.math.BigInteger;
 public class Main {
 
 //    2 -> 10
-    public String binaryToDecimal(String binary) {
+    public static String binaryToDecimal(String binary) {
         return anyToDecimal(binary, 2);
     }
 
 //    2 -> 16
-    public String binaryToHexa(String binary) {
+    public static String binaryToHexa(String binary) {
         String hexa = anyToDecimal(binary, 2);
         return decimalToAny(hexa, 16);
     }
 
 //    10 -> 2
-    public String decimalToBinary(String decimal) {
+    public static String decimalToBinary(String decimal) {
         return decimalToAny(decimal, 2);
     }
 
 //    10 -> 16
-    public String decimalToHexa(String decimal) {
+    public static String decimalToHexa(String decimal) {
         return decimalToAny(decimal, 16);
     }
 
 //    16 -> 2
-    public String hexaToBinary(String hexa) {
+    public static String hexaToBinary(String hexa) {
         String binary = anyToDecimal(hexa, 16);
         return decimalToAny(binary, 2);
     }
 
 //    16 -> 10
-    public String hexaToDecimal(String hexa) {
+    public static String hexaToDecimal(String hexa) {
         return anyToDecimal(hexa, 16);
     }
 
 //    any base to 10
-    public String anyToDecimal(String value, int base) {
+    public static String anyToDecimal(String value, int base) {
         BigInteger decimal = BigInteger.ZERO;
         BigInteger power = BigInteger.ONE;
 
@@ -49,7 +49,7 @@ public class Main {
     }
 
 //    10 to any base
-    public String decimalToAny(String value, int base) {
+    public static String decimalToAny(String value, int base) {
         if (equalZero(value)) {
             return "0";
         }
@@ -65,7 +65,7 @@ public class Main {
         return result.reverse().toString().toUpperCase();
     }
 
-    public boolean equalZero(String value) {
+    public static boolean equalZero(String value) {
         int check = Integer.parseInt(value);
         if (check == 0) {
             return true;
@@ -74,7 +74,7 @@ public class Main {
     }
 
 //    display menu for convert from binary
-    public void displayConvertBinary() {
+    public static void displayConvertBinary() {
         System.out.println("Choose the base number out: \t1.Decimal\t2.Hexadecimal");
         int choice = Validation.intputInteger("Enter your choice: ", 1, 2);
         String binary = Validation.inputBinary();
@@ -89,7 +89,7 @@ public class Main {
     }
 
     //    display menu for convert from decimal
-    public void displayConvertDecimal() {
+    public static void displayConvertDecimal() {
         System.out.println("Choose the base number out: \t1.Binary\t2.Hexadecimal");
         int choice = Validation.intputInteger("Enter your choice: ", 1, 2);
         String decimal = Validation.inputDecimal();
@@ -104,7 +104,7 @@ public class Main {
     }
 
 //    display menu for convert from hexadecimal
-    public void displayConvertHexa() {
+    public static void displayConvertHexa() {
         System.out.println("Choose the base number out: \t1.Binary\t2.Decimal");
         int choice = Validation.intputInteger("Enter your choice: ", 1, 2);
         String hexa = Validation.inputHexa();
@@ -118,7 +118,7 @@ public class Main {
         }
     }
 
-    public void menu() {
+    public static void menu() {
         int choice;
         while (true) {
             System.out.println("Change base number system");
@@ -145,7 +145,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main m = new Main();
-        m.menu();
+        menu();
     }
 }
