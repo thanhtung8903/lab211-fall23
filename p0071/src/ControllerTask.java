@@ -6,16 +6,6 @@ public class ControllerTask {
     BOTask bo = new BOTask();
     Validation v = new Validation();
 
-//    public ControllerTask() {
-//        bo.addTask(new Task(1, "Dev Program", "updated code", "13-07-2024", 8, 15, "dev", "Junior"));
-//        bo.addTask(new Task(2, "Design", "updated design", "28-09-2022", 8, 17.5, "design", "PM"));
-//        bo.addTask(new Task(3, "Dev Program", "updated code", "01-11-2030", 9, 16, "dev", "Senior"));
-//        bo.addTask(new Task(4, "Dev Program", "updated code", "19-05-2028", 10, 17.5, "dev", "Lead"));
-//        bo.addTask(new Task(5, "Dev Program", "updated code", "05-12-2027", 8, 15.5, "dev", "Lead"));
-//        bo.addTask(new Task(6, "Dev Program", "updated code", "22-03-2030", 12, 14, "dev", "Lead"));
-//        bo.addTask(new Task(7, "Dev Program", "updated code", "17-09-2029", 13, 17, "dev", "Junior"));
-//    }
-
     public void addTask() {
         int id;
         if (bo.isEmptyTask()) {
@@ -43,13 +33,12 @@ public class ControllerTask {
             reviewer = v.inputString("Reviewer: ", "[A-Za-z\\s]+");
         }
         
-        Task newTask = new Task(id, taskTypeID, requirementName, date, planFrom, planTo, assignee, reviewer);
-        
-        if (bo.checkDuplicateTask(newTask)) {
+        if (bo.addTask(taskTypeID, requirementName, date, planFrom, planTo, assignee, reviewer) == -1) {
             System.err.println("Duplicate Task");
             return;
+        } else {
+            System.out.println("Add Successfully");
         }
-        bo.addTask(newTask);
     }
 
     public void deleteTask() {
